@@ -1,0 +1,443 @@
+
+	NMAP SCRIPT
+
+ACTUALIZADO EL DIA 30-03-2020
+
+- SCRIPT GENERALES -
+
+nmap -Pn --script vuln 0.0.0.0 
+
+Vuln:
+ Auth		Ejecuta todos sus scripts disponibles para autenticación
+ Default	Ejecuta los scripts básicos por defecto de la herramienta
+ Discovery:	Recupera información del target o víctima
+ External:	Script para utilizar recursos externos
+ Intrusive:	Utiliza scripts que son considerados intrusivos para la víctima o target
+ Malware: 	Revisa si hay conexiones abiertas por códigos maliciosos o backdoors (puertas traseras)
+ Safe: 		Ejecuta scripts que no son intrusivos
+ Vuln: 		Descubre las vulnerabilidades más conocidas
+ All: 		Ejecuta absolutamente todos los scripts con extensión NSE disponibles
+
+nmap --script  http-enum 0.0.0.0	Enumera los directorios utilizados por las aplicaciones y servidores web populares
+
+- GESTORES -
+
+ASPNET:
+nmap --script=http-aspnet-debug.nse 0.0.0.0	
+
+PHP:
+nmap --script=http-cakephp-version.nse 0.0.0.0	
+nmap --script=http-php-version.nse 0.0.0.0	
+nmap --script=http-phpmyadmin-dir-traversal.nse 0.0.0.0	
+nmap --script=http-phpself-xss.nse  0.0.0.0	
+
+
+AVAYA:
+nmap --script=http-avaya-ipoffice-users.nse 0.0.0.0	
+
+CITRIX:
+nmap --script=citrix-brute-xml.nse 0.0.0.0	
+nmap --script=citrix-enum-apps-xml.nse 0.0.0.0	
+nmap --script=citrix-enum-apps.nse 0.0.0.0	
+nmap --script=citrix-enum-servers-xml.nse 0.0.0.0
+nmap --script=citrix-enum-servers.nse 0.0.0.0
+
+JOOMLA: 
+nmap --script=http-joomla-brute.nse 0.0.0.0
+
+WORDPRESS:
+nmap --script=http-wordpress-brute.nse 0.0.0.0
+nmap --script=http-wordpress-enum.nse 0.0.0.0
+nmap --script=http-wordpress-users.nse 0.0.0.0
+
+- BASES DE DATOS -
+
+CASSANDRA:
+nmap --script=cassandra-brute.nse 0.0.0.0
+nmap --script=cassandra-info.nse 0.0.0.0
+
+COUCHDB:
+nmap --script=couchdb-databases.nse 0.0.0.0
+nmap --script=couchdb-stats.nse 0.0.0.0
+
+DB2:
+nmap --script=broadcast-db2-discover.nse 0.0.0.0
+nmap --script=db2-das-info.nse 0.0.0.0
+nmap --script=drda-info.nse 0.0.0.0
+nmap --script=drda-brute.nse  0.0.0.0
+
+HBASE:
+nmap --script=hbase-master-info.nse 0.0.0.0
+nmap --script=hbase-region-info.nse 0.0.0.0
+
+INFORMIX:
+nmap --script=informix-brute.nse 0.0.0.0
+nmap --script=Informix-query.nse 0.0.0.0
+nmap --script=informix-tables.nse 0.0.0.0
+nmap --script=drda-info.nse 0.0.0.0
+nmap --script=drda-brute.nse 0.0.0.0
+
+MAXDB:
+nmap --script=maxdb-info.nse 0.0.0.0
+
+MONGODB:
+nmap --script=mongodb-brute.nse 0.0.0.0
+nmap --script=mongodb-databases.nse 0.0.0.0
+nmap --script=mongodb-info.nse 0.0.0.0
+
+MSSQL:
+nmap --script=broadcast-ms-sql-discover.nse 0.0.0.0
+nmap --script=ms-sql-brute.nse 0.0.0.0
+nmap --script=ms-sql-config.nse 0.0.0.0
+nmap --script=ms-sql-dac.nse 0.0.0.0
+nmap --script=ms-sql-dump-hashes.nse 0.0.0.0
+nmap --script=ms-sql-empty-password.nse 0.0.0.0
+nmap --script=ms-sql-hasdbaccess.nse 0.0.0.0
+nmap --script=ms-sql-info.nse 0.0.0.0
+nmap --script=ms-sql-info.nse 0.0.0.0
+nmap --script=ms-sql-ntlm-info.nse 0.0.0.0
+nmap --script=ms-sql-query.nse 0.0.0.0
+nmap --script=ms-sql-tables.nse 0.0.0.0
+nmap --script=ms-sql-xp-cmdshell.nse 0.0.0.0
+
+MYSQL:
+nmap --script=mysql-audit.nse 0.0.0.0
+nmap --script=mysql-brute.nse 0.0.0.0
+nmap --script=mysql-databases.nse 0.0.0.0
+nmap --script=mysql-dump-hashes.nse 0.0.0.0
+nmap --script=mysql-empty-password.nse 0.0.0.0
+nmap --script=mysql-enum.nse 0.0.0.0
+nmap --script=mysql-info.nse 0.0.0.0
+nmap --script=mysql-query.nse 0.0.0.0
+nmap --script=mysql-users.nse 0.0.0.0
+nmap --script=mysql-variables.nse 0.0.0.0
+nmap --script=mysql-vuln-cve2012-2122.nse 0.0.0.0
+
+ORACLE: 
+nmap --script=oracle-brute-stealth.nse 0.0.0.0
+nmap --script=oracle-brute.nse 0.0.0.0
+nmap --script=oracle-enum-users.nse 0.0.0.0
+nmap --script=oracle-sid-brute.nse 0.0.0.0
+nmap --script=oracle-tns-version.nse 0.0.0.0
+
+POSTGRESQL:
+nmap --script=pgsql-brute.nse 0.0.0.0
+
+REDIS:
+nmap --script=redis-brute.nse 0.0.0.0
+nmap --script=redis-info.nse 0.0.0.0
+
+RIAK:
+nmap --script=riak-http-info.nse 0.0.0.0
+
+- INFRAESTRUCTURAS INDUSTRIALES -
+
+nmap --script=bacnet-info.nse 0.0.0.0
+nmap --script=enip-info.nse 0.0.0.0
+nmap --script=fox-info.nse 0.0.0.0
+nmap --script=modbus-discover.nse 0.0.0.0
+nmap --script=mqtt-subscribe-nse 0.0.0.0
+nmap --script=omron-info.nse 0.0.0.0
+nmap --script=pcworx-info.nse 0.0.0.0
+nmap --script=s7-info.nse 0.0.0.0
+
+- SERVICIOS/PROTOCOLOS -
+
+DHCP:
+nmap --script=dhcp-discover.nse 0.0.0.0
+nmap --script=broadcast-dhcp-discover.nse 0.0.0.0
+nmap --script=broadcast-dhcp6-discover.nse 0.0.0.0
+
+DNS:
+nmap --script=broadcast-dns-service-discovery.nse 0.0.0.0
+nmap --script=dns-blacklist.nse 0.0.0.0
+nmap --script=dns-brute.nse 0.0.0.0
+nmap --script=dns-cache-snoop.nse 0.0.0.0
+nmap --script=dns-check-zone.nse 0.0.0.0
+nmap --script=dns-client-subnet-scan.nse 0.0.0.0
+nmap --script=dns-fuzz.nse 0.0.0.0
+nmap --script=dns-ip6-arpa-scan.nse 0.0.0.0
+nmap --script=dns-nsec-enum.nse 0.0.0.0
+nmap --script=dns-nsec3-enum.nse 0.0.0.0
+nmap --script=dns-nsid.nse 0.0.0.0
+nmap --script=dns-random-srcport.nse 0.0.0.0
+nmap --script=dns-random-txid.nse 0.0.0.0
+nmap --script=dns-recursion.nse 0.0.0.0
+nmap --script=dns-service-discovery.nse 0.0.0.0
+nmap --script=dns-srv-enum.nse 0.0.0.0
+nmap --script=dns-update.nse 0.0.0.0
+nmap --script=dns-zeustracker.nse 0.0.0.0
+nmap --script=dns-zone-transfer.nse 0.0.0.0
+nmap --script=fcrdns.nse 0.0.0.0
+
+FTP: 
+nmap --script=ftp-anon.nse 0.0.0.0
+nmap --script=ftp-bounce.nse 0.0.0.0
+nmap --script=ftp-brute.nse 0.0.0.0
+nmap --script=ftp-libopie.nse 0.0.0.0
+nmap --script=ftp-proftpd-backdoor.nse 0.0.0.0
+nmap --script=ftp-syst.nse 0.0.0.0
+nmap --script=ftp-vsftpd-backdoor.nse 0.0.0.0
+nmap --script=ftp-vuln-cve2010-4221.nse 0.0.0.0
+nmap --script=tftp-enum.nse 0.0.0.0
+
+HTTP:
+nmap --script=http-affiliate-id.nse 0.0.0.0
+nmap --script=http-auth-finder.nse 0.0.0.0
+nmap --script=http-auth.nse 0.0.0.0
+nmap --script=http-awstatstotals-exec.nse 0.0.0.0
+nmap --script=http-backup-finder.nse 0.0.0.0
+nmap --script=http-bigip-cookie.nse 0.0.0.0
+nmap --script=http-brute.nse 0.0.0.0
+nmap --script=http-cakephp-version.nse 0.0.0.0
+nmap --script=http-chrono.nse 0.0.0.0
+nmap --script=http-coldfusion-subzero.nse 0.0.0.0
+nmap --script=http-comments-displayer.nse 0.0.0.0
+nmap --script=http-config-backup.nse 0.0.0.0
+nmap --script=http-cookie-flags.nse 0.0.0.0
+nmap --script=http-cors.nse 0.0.0.0
+nmap --script=http-cross-domain-policy.nse 0.0.0.0
+nmap --script=http-csrf.nse 0.0.0.0
+nmap --script=http-date.nse 0.0.0.0
+nmap --script=http-default-accounts.nse 0.0.0.0
+nmap --script=http-devframework.nse 0.0.0.0
+nmap --script=http-enum.nse 0.0.0.0
+nmap --script=http-errors.nse 0.0.0.0
+nmap --script=http-exif-spider.nse 0.0.0.0
+nmap --script=http-favicon.nse 0.0.0.0
+nmap --script=http-feed.nse 0.0.0.0
+nmap --script=http-fetch.nse 0.0.0.0
+nmap --script=http-fileupload-exploiter.nse 0.0.0.0
+nmap --script=http-form-brute.nse 0.0.0.0
+nmap --script=http-form-fuzzer.nse 0.0.0.0
+nmap --script=http-generator.nse 0.0.0.0
+nmap --script=http-git.nse 0.0.0.0
+nmap --script=http-gitweb-projects-enum.nse 0.0.0.0
+nmap --script=http-google-malware.nse 0.0.0.0
+nmap --script=http-grep.nse 0.0.0.0
+nmap --script=http-headers.nse 0.0.0.0
+nmap --script=http-icloud-findmyiphone.nse 0.0.0.0
+nmap --script=http-icloud-sendmsg.nse 0.0.0.0
+nmap --script=http-internal-ip-disclosure.nse 0.0.0.0
+nmap --script=http-litespeed-sourcecode-download.nse 0.0.0.0
+nmap --script=http-ls.nse 0.0.0.0
+nmap --script=http-malware-host.nse 0.0.0.0
+nmap --script=http-mcmp.nse 0.0.0.0
+nmap --script=http-method-tamper.nse 0.0.0.0
+nmap --script=http-methods.nse 0.0.0.0
+nmap --script=http-ntlm-info.nse 0.0.0.0
+nmap --script=http-open-proxy.nse 0.0.0.0
+nmap --script=http-open-redirect.nse 0.0.0.0
+nmap --script=http-passwd.nse 0.0.0.0
+nmap --script=http-proxy-brute.nse 0.0.0.0
+nmap --script=http-put.nse 0.0.0.0
+nmap --script=http-referer-checker.nse 0.0.0.0
+nmap --script=http-rfi-spider.nse 0.0.0.0
+nmap --script=http-robots.txt.nse 0.0.0.0
+nmap --script=http-robtex-reverse-ip.nse 0.0.0.0
+nmap --script=http-robtex-shared-ns.nse 0.0.0.0
+nmap --script=http-security-headers.nse 0.0.0.0
+nmap --script=http-server-header.nse 0.0.0.0
+nmap --script=http-shellshock.nse 0.0.0.0
+nmap --script=http-sitemap-generator.nse 0.0.0.0
+nmap --script=http-stored-xss.nse 0.0.0.0
+nmap --script=http-svn-enum.nse 0.0.0.0
+nmap --script=http-svn-info.nse 0.0.0.0
+nmap --script=http-title.nse 0.0.0.0
+nmap --script=https-redirect.nse 0.0.0.0
+nmap --script=ip-https-discover.nse 0.0.0.0
+nmap --script=http-vuln-cve2006-3392.nse 0.0.0.0
+nmap --script=http-vuln-cve2009-3960.nse 0.0.0.0
+nmap --script=http-vuln-cve2010-0738.nse 0.0.0.0
+nmap --script=http-vuln-cve2010-2861.nse 0.0.0.0
+nmap --script=http-vuln-cve2011-3192.nse 0.0.0.0
+nmap --script=http-vuln-cve2011-3368.nse 0.0.0.0
+nmap --script=http-vuln-cve2012-1823.nse 0.0.0.0
+nmap --script=http-vuln-cve2013-0156.nse 0.0.0.0
+nmap --script=http-vuln-cve2013-6786.nse 0.0.0.0
+nmap --script=http-vuln-cve2013-7091.nse 0.0.0.0
+nmap --script=http-vuln-cve2014-2126.nse 0.0.0.0
+nmap --script=http-vuln-cve2014-2127.nse 0.0.0.0
+nmap --script=http-vuln-cve2014-2128.nse 0.0.0.0
+nmap --script=http-vuln-cve2014-2129.nse 0.0.0.0
+nmap --script=http-vuln-cve2014-3704.nse 0.0.0.0
+nmap --script=http-vuln-cve2014-8877.nse 0.0.0.0
+nmap --script=http-vuln-cve2015-1427.nse 0.0.0.0
+nmap --script=http-vuln-cve2015-1635.nse 0.0.0.0
+nmap --script=http-vuln-cve2017-1001000.nse 0.0.0.0
+nmap --script=http-vuln-cve2017-5638.nse 0.0.0.0
+nmap --script=http-vuln-cve2017-5689.nse 0.0.0.0
+nmap --script=http-vuln-cve2017-8917.nse 0.0.0.0
+nmap --script=http-vuln-misfortune-cookie.nse 0.0.0.0
+nmap --script=http-vuln-wnr1000-creds.nse 0.0.0.0
+nmap --script=http-traceroute.nse 0.0.0.0
+nmap --script=http-trane-info.nse 0.0.0.0
+nmap --script=http-unsafe-output-escaping.nse 0.0.0.0
+nmap --script=http-useragent-tester.nse 0.0.0.0
+nmap --script=http-userdir-enum.nse 0.0.0.0
+nmap --script=http-vhosts.nse 0.0.0.0
+
+IMAP:
+nmap --script=imap-brute.nse 0.0.0.0
+nmap --script=imap-capabilities.nse 0.0.0.0
+nmap --script=imap-ntlm-info.nse 0.0.0.0
+
+LDAP:
+nmap --script=ldap-brute.nse 0.0.0.0
+nmap --script=ldap-search.nse  0.0.0.0
+nmap --script=ldap-novell-getpass.nse 0.0.0.0
+nmap --script=ldap-rootdse.nse 0.0.0.0
+
+
+RDP:
+nmap --script=rdp-enum-encryption.nse 0.0.0.0
+nmap --script=rdp-vuln-ms12-020.nse 0.0.0.0
+nmap --script=rdp-ntlm-info.nse 0.0.0.0
+
+RLOGIN:
+nmap --script=rlogin-brute.nse 0.0.0.0
+
+SIP:
+nmap --script=sip-brute.nse 0.0.0.0
+nmap --script=sip-call-spoof.nse 0.0.0.0
+nmap --script=sip-enum-users.nse 0.0.0.0
+nmap --script=sip-methods.nse 0.0.0.0
+
+SMB:
+nmap --script=/usr/share/nmap/scripts/smb-brute.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-double-pulsar-backdoor.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-enum-domains.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-enum-groups.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-enum-processes.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-enum-services.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-enum-sessions.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-enum-shares.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-enum-users.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-flood.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-ls.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-mbenum.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-os-discovery.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-print-text.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-protocols.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-psexec.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-security-mode.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-server-stats.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-system-info.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-vuln-conficker.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-vuln-cve-2017-7494.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-vuln-cve2009-3103.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-vuln-ms06-025.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-vuln-ms07-029.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-vuln-ms08-067.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-vuln-ms10-054.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-vuln-ms10-061.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-vuln-ms17-010.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-vuln-regsvc-dos.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-vuln-webexec.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb-webexec-exploit.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb2-capabilities.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb2-security-mode.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb2-time.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smb2-vuln-uptime.nse 0.0.0.0
+
+
+SMTP:
+nmap --script=/usr/share/nmap/scripts/smtp-brute.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smtp-commands.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smtp-enum-users.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smtp-ntlm-info.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smtp-open-relay.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smtp-strangeport.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smtp-vuln-cve2010-4344.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smtp-vuln-cve2011-1720.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smtp-vuln-cve2011-1764.nse 0.0.0.0
+
+
+SNMP:
+nmap --script=/usr/share/nmap/scripts/smtp-brute.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smtp-commands.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smtp-enum-users.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smtp-ntlm-info.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smtp-open-relay.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smtp-strangeport.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smtp-vuln-cve2010-4344.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smtp-vuln-cve2011-1720.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smtp-vuln-cve2011-1764.nse 0.0.0.0
+ 
+
+SSL:
+nmap --script=/usr/share/nmap/scripts/smtp-brute.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smtp-commands.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smtp-enum-users.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smtp-ntlm-info.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smtp-open-relay.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smtp-strangeport.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smtp-vuln-cve2010-4344.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smtp-vuln-cve2011-1720.nse 0.0.0.0
+nmap --script=/usr/share/nmap/scripts/smtp-vuln-cve2011-1764.nse 0.0.0.0
+
+
+SVN:
+nmap --script=svn-brute.nse 0.0.0.0
+nmap --script=http-svn-enum.nse 0.0.0.0
+nmap --script=http-svn-info.nse  0.0.0.0
+
+TELNET:
+/usr/share/nmap/scripts/telnet-brute.nse 0.0.0.0
+/usr/share/nmap/scripts/telnet-encryption.nse 0.0.0.0
+/usr/share/nmap/scripts/telnet-ntlm-info.nse  0.0.0.0
+
+TFTP:
+nmap --script=tftp-enum.nse  0.0.0.0
+
+SSH:
+nmap -p 22 --script ssh-auth-methods --script-args="ssh.user=<username>" <target>
+nmap -p 22 --script=ssh-run \ --script-args="ssh-run.cmd=ls -l /, ssh-run.username=myusername, ssh-run.password=mypassword" <target>
+nmap -p 22 --script ssh-brute --script-args userdb=users.lst,passdb=pass.lst \ --script-args ssh-brute.timeout=4s <target>
+nmap -p 22 --script ssh-publickey-acceptance --script-args "ssh.usernames={'root', 'user'}, ssh.privatekeys={'./id_rsa1', './id_rsa2'}"  <target>
+nmap -p 22 --script ssh-publickey-acceptance --script-args 'ssh.usernames={"root", "user"}, publickeys={"./id_rsa1.pub", "./id_rsa2.pub"}'  <target>
+
+UPNP:
+nmap --script=upnp-info.nse 0.0.0.0
+nmap --script=broadcast-upnp-info.nse  0.0.0.0
+
+VNC:
+nmap --script=vnc-brute.nse 0.0.0.0
+nmap --script=vnc-info.nse  0.0.0.0
+nmap --script=vnc-title.nse 0.0.0.0
+
+
+- VULNERABILIDADES WEB -
+nmap --script=http-dombased-xss.nse 0.0.0.0
+nmap --script=http-stored-xss.nse 0.0.0.0
+nmap --script=http-put.nse 0.0.0.0
+nmap --script=http-slowloris.nse 0.0.0.0
+nmap --script=http-slowloris-check.nse 0.0.0.0 
+nmap --script=http-sql-injection.nse 0.0.0.0
+nmap --script=http-csrf.nse 0.0.0.0
+nmap --script=http-fileupload-exploiter.nse 0.0.0.0
+nmap --script=http-hsts-verify.nse 0.0.0.0
+nmap --script=http-internal-ip-disclosure.nse 0.0.0.0
+nmap --script=http-malware-host.nse 0.0.0.0
+nmap --script=http-passwd.nse 0.0.0.0
+nmap --script=http-referer-checker.nse 0.0.0.0
+nmap --script=http-rfi-spider.nse 0.0.0.0
+nmap --script=http-trace.nse 0.0.0.0
+nmap --script=http-xssed.nse 0.0.0.0
+
+- UTILES -
+nmap --script=whois-domain.nse 0.0.0.0
+nmap --script=whois-ip.nse 0.0.0.0
+nmap --script=hostmap-ip2hosts.nse 0.0.0.0
+nmap --script=hostmap-robtex.nse 0.0.0.0
+nmap --script=http-robtex-reverse-ip.nse 0.0.0.0
+nmap --script=ip-geolocation-map-google.nse 0.0.0.0
+nmap --script=url-snarf.nse 0.0.0.0
+nmap --script=sniffer-detect.nse 0.0.0.0
+nmap --script=ike-version.nse 0.0.0.0
+nmap --script=auth-owners.nse 0.0.0.0
+nmap --script=mikrotik-routeros-brute.nse 0.0.0.0
+nmap --script=firewalk.nse 0.0.0.0
+nmap --script=firewall-bypass.nse 0.0.0.0
+nmap --script=http-waf-detect.nse 0.0.0.0
+nmap --script=http-waf-fingerprint.nse 0.0.0.0

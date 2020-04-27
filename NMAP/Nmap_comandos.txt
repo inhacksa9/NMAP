@@ -1,0 +1,129 @@
+
+	NMAP - COMANDOS
+
+1. Escáner inicial:
+- Un equipo: # nmap 192.168.0.101
+- Una web: # www.google.es
+
+2. El siguiente comando realizará una búsqueda en un host remoto para detectar si los filtros de paquetes o Firewall se utiliza por el anfitrión. (Definir qué resultado tiene que dar)“Unfiltered: Sin filtrar”
+# nmap -sA 192.168.0.101				
+
+2.  Ver información más detallada acerca de la máquina remota.
+- Un equipo: # nmap -v 192.168.0.101
+- Una web: # nmap -v www.google.es 
+
+3. Escanear múltiples hosts simplemente escribiendo sus direcciones IP.
+# nmap 192.168.0.101 192.168.0.102 192.168.0.103
+
+4. Escanear toda una subred o rango de direcciones IP, proporcionando el comodín * con él. 
+# nmap 192.168.0.*
+
+5. Exploraciones en varias direcciones IP simplemente especificando el último octeto de la dirección IP.
+# nmap 192.168.0.101,102,103
+
+6. Para escanear más hosts y todos los detalles de acogida están escritos en un archivo, puede hacer que nmap directamente lea ese archivo y realice el análisis.
+Crear un archivo de texto llamado "nmaptest.txt" y definir todas las direcciones IP o nombre de host del servidor que desea hacer una exploración.
+    cat > nmaptest.txt
+		localhost
+		server2.mimaquina.com
+		192.168.0.101
+
+A continuación, ejecute el siguiente comando con la opción "iL" con el comando nmap para escanear todas las direcciones IP que aparece en el archivo.
+# nmap -iL nmaptest.txt
+
+7. Especificar un rango de direcciones IP. 
+# nmap 192.168.0.101-110
+
+8. Especificar la exclusión de algunos hosts al realizar una exploración de red completa o cuando se escanea con los comodines con la opción de "–exclude". 
+# nmap 192.168.0.* --exclude 192.168.0.100
+
+9. Detectar qué sistema operativo y la versión que está ejecutando en el host remoto. Para habilitar la detección de sistema operativo y versión, la exploración de la escritura y la Ruta de seguimiento, podemos usar la opción "-A" con NMAP. 
+# nmap -A 192.168.0.101
+
+10. Utilice la opción "-O" y "-osscan-guess" para descubrir la información del sistema operativo. 
+# nmap -O 192.168.0.101
+
+12. Para escanear un host si está protegido por ningún software de filtrado de paquetes o cortafuegos.
+# nmap -PN 192.168.0.101
+
+13. Con la ayuda de la opción "-sP" simplemente podemos comprobar qué hosts están vivos y en red, con esta opción se salta nmap detección de puertos y otras cosas. Este escaneo se llama de tipo “ping scan”.
+# nmap -sP 192.168.0.*
+
+14. Usted puede realizar un análisis rápido con la opción "-F" para las exploraciones para los puertos que figuran en los archivos de nmap-services y deja todos los demás puertos.
+# nmap -F 192.168.0.101
+
+15. Utilice el indicador "-r" para hacerlo no de forma aleatoria.
+# nmap -r 192.168.0.101
+
+16. Encontrar la interfaz y ruta de información de host con nmap con la opción "-iflist".
+# nmap --iflist 192.168.0.101
+
+17. Hay varias opciones para descubrir los puertos en la máquina remota con Nmap. Se puede especificar el puerto que desee nmap para escanear con la opción "-p", por defecto escanea nmap sólo puertos TCP.
+# nmap -p 80 192.168.0.101
+
+18. También puede especificar los tipos de puertos y los números con nmap para escanear.
+# nmap -p T:8888,80 192.168.0.101
+
+19. Escanear varios puertos a la vez.
+# nmap -p 80,443 192.168.0.101		Puertos TCP.
+# nmap -p U:80,443 192.168.0.101	Puertos UDP.
+
+20. Escanear un puerto UDP
+# nmap -sU 53 192.168.0.101
+
+21. Escanear puertos con rangos utilizando expresiones.
+#  nmap -p 80-160 192.168.0.101
+
+22. Encontrar versiones de servicios que se ejecutan en máquinas remotas con la opción "-sV".
+# nmap -sV 192.168.0.101
+
+23. A veces, el cortafuego de filtrado de paquetes bloquea las solicitudes de ping ICMP estándar, en ese caso, podemos utilizar métodos TCP ACK y TCP Syn para escanear hosts remotos.
+# nmap -PS 192.168.0.101
+
+24. Analizar Host remoto para puertos específicos con TCP ACK.
+# nmap -PA -p 22,80 192.168.0.101
+
+25. Analizar Host remoto para puertos específicos con TCP Syn.
+# nmap -PS -p 22,80 192.168.0.101
+
+26. Realizar un escaneo sigiloso. Este escaneo también es llamado de tipo “SYN scan”.
+# nmap -sS 192.168.0.101
+
+27. Escaneos de puerto más puertos utilizandos. Este escaneo también es llamado de tipo “TCP Syn” (lo puede detectar los firewalls).
+# nmap -sT 192.168.0.101
+
+28. Escaneo de puertos de tipo “FYN scan”.
+# nmap -sF 192.168.0.101
+
+29. Escaneo de puerto de tipo “Xmas scan”.
+# nmap -sX 192.168.0.101
+
+30. Realizar un análisis tcp nula para engañar a un servidor de seguridad. Este escaneo también es llamado de tipo “Null scan”
+# nmap -sN 192.168.0.101
+
+31.Escanea solo los puertos abiertos (o posiblemente abiertos).
+# nmap -open 192.168.0.101
+
+32. Escanea solo lista de equipos. No envía paquetes al objetivo.
+# nmap -sL 192.168.0.101
+
+33. Escanea un UDP vacío por un puerto. Traspasa cortafuegos.
+# nmap -PU <puerto> 192.168.0.101
+
+34. Analiza en busca de protocolos IP (TCP, ICMP, IGMP,etc)
+# nmap -sO 192.168.0.101
+
+35. Escanea los puertos más comunes que utilizan “TCP Windows Scan”.
+# nmap -sW 192.168.0.101
+
+36. Escanea los puertos más comunes que utilizan “TCP Mainmon Scan”.
+# nmap -sM 192.168.0.101
+
+37. Opciones contra firewall/Routers.
+# nmap -f 192.168.1.1
+# nmap --spoof-mac 00:AB:23:65:0E:14 192.168.1.1	Escanea los puertos con otra mac.
+
+# nmap --source-port 80 191.168.1.1		Escaneas los puertos por un puerto abierto.
+
+# nmap --badsum 192.168.1.1			Saber si hay firewall.
+

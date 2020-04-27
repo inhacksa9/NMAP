@@ -1,0 +1,14 @@
+	
+	NMAP INSTALACION
+
+INSTALAR NMAP EN DEBIAN.
+# sudo apt-get update
+# sudo apt-get install nmap
+# sudo apt-get install zenmap
+
+ACTUALIZAR NMAP EN DEBIAN.
+# sudo apt-get upgrade nmap
+# sudo apt-get upgrade zenmap
+
+COMPROBAR LA VERSION DEL NMAP EN DEBIAN.
+# nmap -V
